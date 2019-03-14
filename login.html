@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="css/type.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>登录</title>
+<script type="text/javascript" language="javascript">
+function InputCheck(f)
+{
+	 var number=document.getElementById("number");
+     if(number.value=='')
+     {
+		 alert("用户名不能为空！")
+         number.focus();
+    	 return false;
+   	 }
+	 var password=document.getElementById("password");
+	 if(password.value=="")
+	 {
+		 alert("密码不能为空！");
+		 password.focus();
+		 return false;
+	 }
+	 return true;
+ }
+</SCRIPT>
+
+</head>
+<body>
+<div class="content">
+<div class="head">
+  <div class="head_1">
+    <div class="top">
+      <div class="top_logo"><img src="images/logo.jpg" /></div>
+    </div>
+    <div class="nav">
+      <ul>
+        <li><a href="uploadpage">上传作业</a></li>
+        <li>|</li>
+        <li><a href="list">查看作业</a></li>
+        <li>|</li>
+        <li><a href="#">作业公告</a></li>
+        <li>|</li>
+        <li><a href="#">关于系统</a></li>
+		<li>|</li>
+        <li><a  href="login.html">登录</a></li>
+        <li>|</li>
+        <li><a  href="changepass.html">修改密码</a></li>
+        <li>|</li>
+        <li><a  href="register.html">注册</a></li>
+      </ul>
+    </div>
+
+</div>
+<center>
+<div class="contact" >
+ <form name="form1" method="post" action="/login" onsubmit= "return InputCheck(this)">
+  <ul>
+				<li>
+					<label>学号：</label>
+					<input type="text" name="number" id="number" placeholder="请输入学号"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><span class="tips" id="divname">长度1~12个字符</span>
+				</li>
+				<li>
+					<label>密码：</label>
+					<input type="password" name="password" id="password" placeholder="请输入你的密码"/><span class="tips" id="divpassword1">密码不能少于6位</span>
+				</li>
+				<li>
+					<input class="btnclass" type="submit" name="Submit" value="登录">
+				</li>
+				<li>
+					还没注册？点击此处<a href="register.html" ><font color="#f91924" >注册</font></a>
+				</li>
+  </ul>
+  </form>
+</div>
+</center>
+</div>
+</body>
+</html>

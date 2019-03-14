@@ -1,0 +1,95 @@
+﻿ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/type.css" rel="stylesheet" type="text/css" />
+<title>修改密码</title>
+<script type="text/javascript" language="javascript">
+function Check(f)
+{
+	var password=document.getElementById("password");
+	var pass=password.value;
+	if(pass.length<=0)
+	{
+		alert("please input your old password!");
+		password.focus();
+		return false;
+	}
+	var newpassword=document.getElementById("newpassword");
+	pass=newpassword.value;
+	if(pass.length<=0)
+	{
+		alert("please input your new password!!");
+		newpassword.focus();
+		return false;
+	}
+	if(pass.length<6)
+	{
+		alert("password lenth is not enough");
+		newpassword.focus();
+		return false;
+	}
+	var pass2=document.getElementById("newpassword2").value;
+	if(pass!=pass2)
+	{
+		alert("The new password is not consistent, please re transmission!");
+		newpassword.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+</head>
+
+<body>
+<div class="content">
+<div class="head">
+  <div class="head_1">
+    <div class="top">
+      <div class="top_logo"><img src="images/logo.jpg" /></div>
+    </div>
+    <div class="nav">
+      <ul>
+        <li><a href="uploadpage">上传作业</a></li>
+        <li>|</li>
+        <li><a href="list">查看作业</a></li>
+        <li>|</li>
+        <li><a href="#">作业公告</a></li>
+        <li>|</li>
+        <li><a href="#">关于系统</a></li>
+		<li>|</li>
+        <li><a  href="changepass.html">修改密码</a></li>
+        <li>|</li>
+        <li><a  href="register.html">注册</a></li>
+		<li>|</li>
+		<li><a href="/exit">退出系统</a></li>
+      </ul>
+    </div>
+
+</div>
+
+<center>
+<div class="contact" >
+<form onsubmit="return Check(this);" id="form1" action="/changepass" enctype="multipart/form-data"  method="post"> 
+<ul>
+				<li>
+					<label>原始密码：</label>
+					<input type="password" name="password" id="password" /><span class="tips" id="divpassword1">请输入原来的密码</span>
+				</li>
+				<li>
+					<label>新密码：</label>
+					<input type="password" name="newpassword" id="newpassword" /><span class="tips" id="divpassword1">密码不能少于6位</span>
+				</li>
+				<li>
+					<label>重复密码：</label>
+					<input type="password" name="newpassword2" id="newpassword2" /><span class="tips" id="divpassword1">密码不能少于6位</span>
+				</li>
+				<li>
+				<input type="submit" value="提交" class="btnclass"/>
+				</li>
+</ul>
+</form>
+</div>
+</center>
+</body>
+</html>
